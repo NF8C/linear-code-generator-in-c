@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int main()
-{
+
+int linearGenerator(int facilityCode , int transmitterNumber , int buttonNumber) {
     /*
     fc Enter the facility Code:
     tn Enter the transmitter number ex. 17316
@@ -13,16 +13,14 @@ int main()
     int fc=3;
     int tn=17316;
     int bn=2;
+    int dec=((tn*8)+8388608)+(fc*524288)+bn;
     long quotient=((tn*8)+8388608)+(fc*524288)+bn;
-    
-    
-    printf("The code is %d \n" , dec) ;
     
     long decimalnum, remainder;
 
     int i, j = 0;
 
-    char hexadecimalnum[100];
+    char hexadecimalnum[16];
 
 
     while (quotient != 0)
@@ -42,9 +40,27 @@ int main()
         quotient = quotient / 16;
 
     }
+    
+    char a[10];
+    
+    for (i = 0; i <= j; i+=1)
+    a[i] = hexadecimalnum[j-i-1];
+    
+    printf("The code is: %s", a);
+    
+    return 0;
+    
+    
+}
 
-    for (i = j; i >= 0; i--)
-        printf("%c", hexadecimalnum[i]);
-        
+
+
+int main()
+{
+    int fc=3;
+    int tn=17316;
+    int bn=2;
+    
+    linearGenerator(fc, tn, bn); 
     return 0;
 }
