@@ -13,7 +13,6 @@ int main()
     int fc=3;
     int tn=17316;
     int bn=2;
-    int dec=((tn*8)+8388608)+(fc*524288)+bn;
     long quotient=((tn*8)+8388608)+(fc*524288)+bn;
     
     
